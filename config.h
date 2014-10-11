@@ -17,10 +17,19 @@
 
 /* Define to 1 if the nfconv patch should be enabled */
 /* #undef ENABLE_NFCONV */
+#ifndef MOUNTED
+#define MOUNTED "/etc/mtab"
+#endif
+
+#ifndef _PATH_MOUNTED
+#define _PATH_MOUNTED "/etc/mtab"
+#endif
+
+#define __USE_FILE_OFFSET64
 
 /* Define this to 1 if you want to enable generation of DCE compliant UUIDs.
    */
-#define ENABLE_UUID 1
+//#define ENABLE_UUID 1
 
 /* Define to 1 if using internal fuse */
 #define FUSE_INTERNAL 1
@@ -53,7 +62,7 @@
 #define HAVE_DUP2 1
 
 /* Define to 1 if you have the <endian.h> header file. */
-#define HAVE_ENDIAN_H 1
+//#define HAVE_ENDIAN_H 1
 
 /* Define to 1 if you have the <errno.h> header file. */
 #define HAVE_ERRNO_H 1
@@ -95,7 +104,7 @@
 #define HAVE_LIBGEN_H 1
 
 /* Define to 1 if you have the <libintl.h> header file. */
-#define HAVE_LIBINTL_H 1
+//#define HAVE_LIBINTL_H 1
 
 /* Define to 1 if you have the <limits.h> header file. */
 #define HAVE_LIMITS_H 1
@@ -116,7 +125,7 @@
 /* #undef HAVE_MACHINE_ENDIAN_H */
 
 /* Define to 1 if you have the <malloc.h> header file. */
-#define HAVE_MALLOC_H 1
+//#define HAVE_MALLOC_H 1
 
 /* Define to 1 if mbrtowc and mbstate_t are properly declared. */
 #define HAVE_MBRTOWC 1
@@ -158,7 +167,7 @@
 #define HAVE_SETLOCALE 1
 
 /* Define to 1 if you have the `setxattr' function. */
-#define HAVE_SETXATTR 1
+//#define HAVE_SETXATTR 1
 
 /* Define to 1 if you have the `snprintf' function. */
 #define HAVE_SNPRINTF 1
@@ -219,7 +228,7 @@
 #define HAVE_STRTOUL 1
 
 /* Define to 1 if `st_atim' is a member of `struct stat'. */
-#define HAVE_STRUCT_STAT_ST_ATIM 1
+//#define HAVE_STRUCT_STAT_ST_ATIM 1
 
 /* Define to 1 if `st_atimensec' is a member of `struct stat'. */
 /* #undef HAVE_STRUCT_STAT_ST_ATIMENSEC */
@@ -289,7 +298,7 @@
 #define HAVE_UTIME 1
 
 /* Define to 1 if you have the `utimensat' function. */
-#define HAVE_UTIMENSAT 1
+//#define HAVE_UTIMENSAT 1
 
 /* Define to 1 if you have the <utime.h> header file. */
 #define HAVE_UTIME_H 1

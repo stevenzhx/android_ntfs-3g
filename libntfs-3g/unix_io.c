@@ -63,6 +63,10 @@
 
 #define DEV_FD(dev)	(*(int *)dev->d_private)
 
+#ifdef __USE_FILE_OFFSET64
+#include <unistd.h>
+#endif
+
 /* Define to nothing if not present on this system. */
 #ifndef O_EXCL
 #	define O_EXCL 0
@@ -223,7 +227,7 @@ static int ntfs_device_unix_io_close(struct ntfs_device *dev)
 static s64 ntfs_device_unix_io_seek(struct ntfs_device *dev, s64 offset,
 		int whence)
 {
-	return lseek(DEV_FD(dev), offset, whence);
+	return lseek64(DEV_FD(dev), offset, whence);
 }
 
 /**
@@ -277,7 +281,7 @@ static s64 ntfs_device_unix_io_write(struct ntfs_device *dev, const void *buf,
 static s64 ntfs_device_unix_io_pread(struct ntfs_device *dev, void *buf,
 		s64 count, s64 offset)
 {
-	return pread(DEV_FD(dev), buf, count, offset);
+	return pread64(DEV_FD(dev), buf, count, offset);
 }
 
 /**
@@ -299,7 +303,7 @@ static s64 ntfs_device_unix_io_pwrite(struct ntfs_device *dev, const void *buf,
 		return -1;
 	}
 	NDevSetDirty(dev);
-	return pwrite(DEV_FD(dev), buf, count, offset);
+	return pwrite64(DEV_FD(dev), buf, count, offset);
 }
 
 /**
