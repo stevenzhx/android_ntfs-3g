@@ -32,3 +32,7 @@ HINTS: Either the volume is a RAID/LDM but it wasn'tsetup yet,
 同理将pread，pwrite修改为pread64，pwrite64
 
 这个已经在代码中更改了。
+
+
+对于读取超过2G的大文件时候，off_t 是32位的， 不满足系统要求，
+需要以 loff_t 代替 off_t， 即支持64位

@@ -412,6 +412,11 @@
 /* Number of bits in a file offset, on hosts where this is settable. */
 /* #undef _FILE_OFFSET_BITS */
 
+#ifndef _OFF_T_DEFINED_
+#define _OFF_T_DEFINED_
+#define off_t loff_t
+#endif
+
 /* Define for large files, on AIX-style hosts. */
 /* #undef _LARGE_FILES */
 
